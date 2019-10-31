@@ -1,0 +1,1 @@
+export const backend = "http://backend.innruptive.com/api/1.1/tables/innruptive/rows"
