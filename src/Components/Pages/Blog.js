@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import useColor from "../Hooks/useColor"
 
-// TODO: make background image configurable from ENV file
+const Blog = () => {
+	const [color] = useColor()
 
-const Blog = props => {
-	const { color } = props;
+	useEffect(() => {
+	}, [color]);
+
 	return (
 		<section className={color}>
 			<div className="intro">
