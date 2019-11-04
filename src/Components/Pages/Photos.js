@@ -1,11 +1,7 @@
-import React, { useEffect } from "react";
-import useColor from "../Hooks/useColor"
+import React from "react";
 
-const Photos = () => {
-	const [color] = useColor()
-
-	useEffect(() => {
-	}, [color]);
+const Photos = props => {
+	const { color } = props;
 
 	return (
 		<section className={color}>
