@@ -11,34 +11,42 @@ div#shadow {
 	color: $red;
 }
 
+header,
+footer {
+	padding: 15px;
+}
+
 section {
-	min-height: calc(100vh - 169px);
-	padding: 10% 0 45px 0;
+	min-height: 100vh;
+	width: 600px;
+	max-width: calc(100% - 125px);
+	margin: 0 auto;
+	padding: 45px 25px 45px 25px;
+	@media (max-width: 1023px) {
+		max-width: 100%;
+		padding: 15px;
+		margin-top: 60px;
+	}
 }
 
 .green {
 	background: $green;
-	color: $white;
 }
 
 .blue {
 	background: $blue;
-	color: $white;
 }
 
 .yellow {
 	background: $yellow;
-	color: $white;
 }
 
 .orange {
 	background: $orange;
-	color: $white;
 }
 
 .black {
 	background: $grey-900;
-	color: $white;
 }
 
 section,
@@ -135,3 +143,32 @@ div#root:before {
 	right: 0;
 	top: 0;
 }*/
+
+/*
+body {
+	&:after {
+		animation: grain 8s steps(10) infinite;
+		background-image: url("http://api.thumbr.it/whitenoise-361x370.png?background=000000ff&noise=ffffff&density=61&opacity=10");
+		content: "";
+		height: 300%;
+		left: -50%;
+		opacity: 0.3;
+		position: fixed;
+		top: -100%;
+		width: 300%;
+	}
+}
+
+@keyframes grain {
+  0%, 100% { transform:translate(0, 0) }
+  10% { transform:translate(-5%, -10%) }
+  20% { transform:translate(-15%, 5%) }
+  30% { transform:translate(7%, -25%) }
+  40% { transform:translate(-5%, 25%) }
+  50% { transform:translate(-15%, 10%) }
+  60% { transform:translate(15%, 0%) }
+  70% { transform:translate(0%, 15%) }
+  80% { transform:translate(3%, 35%) }
+  90% { transform:translate(-10%, 10%) }
+}
+*/

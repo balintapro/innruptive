@@ -1,27 +1,37 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	Link
-} from "react-router-dom";
+	faTerminal,
+	faProjectDiagram,
+	faThList
+} from "@fortawesome/free-solid-svg-icons";
 
 // header component for display routing
 const Header = props => {
 	const { color } = props;
 	return (
 		<header className={color}>
-			<div className="nav">
-				<div className="container">
-					<ul id="nav">
-						<li>
-							<Link to="/">Home</Link>
-							<Link to="/about">About</Link>
-							<Link to="/blog">Blog</Link>
-							<Link to="/photos">Photos</Link>
-							<Link to="/contact">Contact</Link>
-							<a onClick={history.goBack}>Go Back</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<nav className="nav crt" id="nav">
+				<Link to="/">
+					<b>
+						<FontAwesomeIcon icon={faTerminal} />
+					</b>
+					<span>Home</span>
+				</Link>
+				<Link to="/about">
+					<b>
+						<FontAwesomeIcon icon={faProjectDiagram} />
+					</b>
+					<span>Projects</span>
+				</Link>
+				<Link to="/blog">
+					<b>
+						<FontAwesomeIcon icon={faThList} />
+					</b>
+					<span>Blog</span>
+				</Link>
+			</nav>
 		</header>
 	);
 };

@@ -9,8 +9,6 @@ import Banner from "./Banner";
 import Intro from "./Pages/Intro";
 import About from "./Pages/About";
 import Blog from "./Pages/Blog";
-import Photos from "./Pages/Photos";
-import Contact from "./Pages/Contact";
 
 import Footer from "./Footer";
 
@@ -22,45 +20,47 @@ const App = () => {
 	const [colorPair, setPair] = useState();
 	const domRef = useRef(null);
 
-	//	$green: rgb(82, 216, 144);
-	//	$blue: rgb(94, 175, 168);
-	//	$yellow: rgb(245, 198, 93);
-	//	$orange: rgb(220, 112, 73);
-	//	$red: rgb(160, 32, 64);
+	const green = "rgb(82, 216, 144, 0.2)";
+	const blue = "rgb(94, 175, 168, 0.2)";
+	const yellow = "rgb(245, 198, 93, 0.2)";
+	const orange = "rgb(220, 112, 73, 0.2)";
+	const red = "rgb(160, 32, 64, 0.2)";
+	const black = "rgb(25, 25, 25)";
+	const white = "#fff"
 
 	const locationColor = () => {
 		if (location && location.pathname && location.pathname.includes("about")) {
-			setColor("yellow");
-			setColorRgb("rgb(245, 198, 93)");
-			setPair("rgb(94, 175, 168)"); // blue
+			setColor("white");
+			setColorRgb(white);
+			setPair(blue);
 		} else if (
 			location &&
 			location.pathname &&
 			location.pathname.includes("contact")
 		) {
-			setColor("blue");
-			setColorRgb("rgb(94, 175, 168)");
-			setPair("rgb(245, 198, 93)"); // yellow
+			setColor("white");
+			setColorRgb(white);
+			setPair(yellow);
 		} else if (
 			location &&
 			location.pathname &&
 			location.pathname.includes("blog")
 		) {
-			setColor("orange");
-			setColorRgb("rgb(220, 112, 73)");
-			setPair("rgb(82, 216, 144)"); //green
+			setColor("white");
+			setColorRgb(white);
+			setPair(green);
 		} else if (
 			location &&
 			location.pathname &&
 			location.pathname.includes("photos")
 		) {
-			setColor("black");
-			setColorRgb("rgb(25, 25, 25)");
-			setPair("rgb(160, 32, 64)"); //red
+			setColor("white");
+			setColorRgb(white);
+			setPair(orange);
 		} else {
-			setColor("green");
-			setColorRgb("rgb(82, 216, 144)");
-			setPair("rgb(94, 175, 168)"); //blue
+			setColor("white");
+			setColorRgb(white);
+			setPair(blue);
 		}
 	};
 
@@ -78,8 +78,8 @@ const App = () => {
 
 		domRef.current.style.boxShadow = `
 		inset ${-50 + xMovement * 2}px ${yMovement * 1}px 0 ${colorRgb},
-		inset ${-50 + xMovement * 2}px ${100+ yMovement * 2}px 0 ${colorPair},
-		inset ${-50 + xMovement * 2}px ${yMovement * -1}px 0 ${colorRgb},
+		inset ${-50 + xMovement * 2}px ${yMovement * 1}px 0 ${colorPair},
+		inset ${350 + xMovement * 2}px ${yMovement * -1}px 0 ${colorRgb},
 		inset ${-50 + xMovement * 2}px ${yMovement * -3}px 0 ${colorPair}
 		`;
 	};
@@ -87,17 +87,15 @@ const App = () => {
 	useEffect(() => {
 		domRef.current.addEventListener("mousemove", shadow);
 		locationColor();
-	}, [location, color]);
+	}, [location, color, colorRgb, colorPair]);
 
 	return (
-		<div id="shadow" ref={domRef} className={color}>
+		<div ref={domRef} className={color}>
 			<Menu />
 			<Banner />
 			<Route component={Intro} exact path="/" />
 			<Route component={About} path="/about" />
 			<Route component={Blog} path="/blog" />
-			<Route component={Photos} path="/photos" />
-			<Route component={Contact} path="/contact" />
 			<Footer />
 		</div>
 	);
