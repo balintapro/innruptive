@@ -16,29 +16,28 @@ section {
 	padding: 10% 0 45px 0;
 }
 
+section {
+	background: $grey-800;
+}
+
 .green {
-	background: $green;
-	color: $white;
+	color: $green;
 }
 
 .blue {
-	background: $blue;
-	color: $white;
+	color: $blue;
 }
 
 .yellow {
-	background: $yellow;
-	color: $white;
+	color: $yellow;
 }
 
 .orange {
-	background: $orange;
-	color: $white;
+	color: $orange;
 }
 
-.black {
-	background: $grey-900;
-	color: $white;
+.red {
+	color: $red;
 }
 
 section,
@@ -121,17 +120,3 @@ footer {
 		-webkit-transform: scaleY(1);
 	}
 }
-
-/*
-div#root:before {
-	content: "";
-	width: 100vw;
-	height: 100vh;
-	box-shadow: inset 0px 0px 0px 5rem rgb(0, 0, 0);
-	display: block;
-	position: fixed;
-	z-index: 3;
-	left: 0;
-	right: 0;
-	top: 0;
-}*/

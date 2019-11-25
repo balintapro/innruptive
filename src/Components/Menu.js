@@ -8,20 +8,13 @@ const Header = props => {
 	const { color } = props;
 	return (
 		<header className={color}>
-			<div className="nav">
-				<div className="container">
-					<ul id="nav">
-						<li>
-							<Link to="/">Home</Link>
-							<Link to="/about">About</Link>
-							<Link to="/blog">Blog</Link>
-							<Link to="/photos">Photos</Link>
-							<Link to="/contact">Contact</Link>
-							<a onClick={history.goBack}>Go Back</a>
-						</li>
-					</ul>
-				</div>
-			</div>
+			<nav id="nav">
+				<Link className="green" to="/"><span>Home</span></Link>
+				<Link className="yellow" to="/about"><span>About</span></Link>
+				<Link className="orange" to="/blog"><span>Blog</span></Link>
+				<Link className="red" to="/photos"><span>Photos</span></Link>
+				<Link className="green" to="/contact"><span>Contact</span></Link>
+			</nav>
 		</header>
 	);
 };

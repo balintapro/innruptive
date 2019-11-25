@@ -5,7 +5,7 @@ const Footer = props => {
 	const { color } = props;
 	return (
 		<footer className={color}>
-			<span>INNRUPTIVE © by Balint Apro</span>
+			<p><span className="logo">INNRUPTIVE</span> © by Balint Apro</p>
 			<p>2019</p>
 		</footer>
 	);
