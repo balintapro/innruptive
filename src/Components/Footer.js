@@ -1,57 +1,27 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faReact,
-	faTwitter,
-	faNpm,
-	faSass,
-	faSpotify,
-	faGithub,
-	faLinux
-} from "@fortawesome/free-brands-svg-icons";
-
-import { faCoffee, faArchive } from "@fortawesome/free-solid-svg-icons";
+import { faTwitter, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 // footer
 const Footer = props => {
 	const { color } = props;
+	const year = new Date().getFullYear();
 	return (
 		<footer className={color}>
 			<div className="wrap">
-				<a href="http://" target="_blank">
+				<a href="https://twitter.com/balint_apro" target="_blank">
 					<FontAwesomeIcon icon={faTwitter} />
 				</a>
-				<a href="http://" target="_blank">
-					<FontAwesomeIcon icon={faSpotify} />
-				</a>
-				<a href="http://" target="_blank">
-					<FontAwesomeIcon icon={faCoffee} />
-				</a>
-			</div>
-			<div className="wrap">
-				<a href="http://" target="_blank">
+				<a href="https://www.npmjs.com/~zeracoke" target="_blank">
 					<FontAwesomeIcon icon={faNpm} />
 				</a>
-				<a href="http://" target="_blank">
-					<FontAwesomeIcon icon={faReact} />
-				</a>
-				<a href="http://" target="_blank">
-					<FontAwesomeIcon icon={faArchive} />
-				</a>
-				<a href="http://" target="_blank">
-					<FontAwesomeIcon icon={faSass} />
-				</a>
-				<a href="http://" target="_blank">
+				<a href="https://github.com/abalint88" target="_blank">
 					<FontAwesomeIcon icon={faGithub} />
 				</a>
-				<a href="http://" target="_blank">
-					<FontAwesomeIcon icon={faLinux} />
-				</a>
 			</div>
-
 			<div className="wrap">
 				<p>INNRUPTIVE</p>
-				<p>2019</p>
+				<p>{year}</p>
 			</div>
 		</footer>
 	);

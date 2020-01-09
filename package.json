@@ -2,7 +2,7 @@
 	"name": "inruptive-boilerplate",
 	"version": "1.0.0",
 	"description": "Innruptive react build",
-	"main": "src/Components/App.js",
+	"main": "src/App.js",
 	"scripts": {
 		"format": "prettier --write \"src/**/*.{js,jsx,css,scss,json} \"",
 		"format:check": "prettier --list-different \"src/**/*.{js,jsx,css,scss,json} \"",
@@ -10,7 +10,7 @@
 		"lint:fix": "eslint --fix \"src/*.{js,jsx}\"",
 		"dev": "parcel src/indexDev.html --no-cache",
 		"prebuild": "rmdir ./prod",
-		"build": "parcel build src/index.html --experimental-scope-hoisting -d ./prod --public-url https://innruptive.com/testing/ "
+		"build": "parcel build src/index.html --experimental-scope-hoisting -d ./prod --public-url https://innruptive.com/ "
 	},
 	"repository": {
 		"type": "git",

@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios"
 
 const Intro = props => {
 	const { color } = props;
@@ -6,9 +7,9 @@ const Intro = props => {
 	return (
 		<section className={color}>
 			<div className="intro">
-				<h2>HI,</h2>
-				<p>Welcome at Innruptive. I'm Balint Apro a front-end developer from Hungary.</p>
-				<p>So what is the name you ask. Well, web technologies are always about to change and a fron-end guy like myself can only try to be ahead of innovations, technologies.</p>
+				<h1>innruptive</h1>
+				<p className="sub">Front-end solutions made with care and speed</p>
+				<p>I`m Balint, a front-end guy based at Budapest, Hungary. Nice to have you here. This site is a collection of some stuff I do and love.</p>
 			</div>
 		</section>
 	);

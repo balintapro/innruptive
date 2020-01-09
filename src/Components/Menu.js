@@ -19,7 +19,7 @@ const Header = props => {
 					</b>
 					<span>Home</span>
 				</Link>
-				<Link to="/about">
+				<Link to="/projects">
 					<b>
 						<FontAwesomeIcon icon={faProjectDiagram} />
 					</b>

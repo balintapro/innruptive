@@ -1,16 +1,16 @@
 import "babel-polyfill";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, useLocation, Switch } from "react-router-dom";
 
-import Menu from "./Menu";
-import Banner from "./Banner";
+import Menu from "./Components/Menu";
+import Banner from "./Components/Banner";
 
-import Intro from "./Pages/Intro";
-import About from "./Pages/About";
-import Blog from "./Pages/Blog";
+import Intro from "./Components/Pages/Intro";
+import Projects from "./Components/Pages/Projects";
+import Blog from "./Components/Pages/Blog";
 
-import Footer from "./Footer";
+import Footer from "./Components/Footer";
 
 const App = () => {
 	let location = useLocation();
@@ -26,10 +26,14 @@ const App = () => {
 	const orange = "rgb(220, 112, 73, 0.2)";
 	const red = "rgb(160, 32, 64, 0.2)";
 	const black = "rgb(25, 25, 25)";
-	const white = "#fff"
+	const white = "#fff";
 
 	const locationColor = () => {
-		if (location && location.pathname && location.pathname.includes("about")) {
+		if (
+			location &&
+			location.pathname &&
+			location.pathname.includes("Projects")
+		) {
 			setColor("white");
 			setColorRgb(white);
 			setPair(blue);
@@ -93,9 +97,11 @@ const App = () => {
 		<div ref={domRef} className={color}>
 			<Menu />
 			<Banner />
-			<Route component={Intro} exact path="/" />
-			<Route component={About} path="/about" />
-			<Route component={Blog} path="/blog" />
+			<Switch>
+				<Route component={Intro} exact path="/" />
+				<Route component={Projects} path="/projects" />
+				<Route component={Blog} path="/blog" />
+			</Switch>
 			<Footer />
 		</div>
 	);

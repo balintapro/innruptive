@@ -8,8 +8,7 @@ const Blog = props => {
 			<div className="intro">
 				<h2>Blog</h2>
 				<p>
-					Brief intro should be here, but I was busy working on something
-					else...
+					I plan to write about some technologies I dealt with, or just about some linux tips I found useful.
 				</p>
 			</div>
 		</section>
