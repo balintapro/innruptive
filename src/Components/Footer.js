@@ -9,13 +9,13 @@ const Footer = props => {
 	return (
 		<footer className={color}>
 			<div className="wrap">
-				<a href="https://twitter.com/balint_apro" target="_blank">
+				<a href="https://twitter.com/balint_apro" title="My Twitter" rel="noopener" target="_blank">
 					<FontAwesomeIcon icon={faTwitter} />
 				</a>
-				<a href="https://www.npmjs.com/~zeracoke" target="_blank">
+				<a href="https://www.npmjs.com/~zeracoke" title="My public NPM packages" rel="noopener" target="_blank">
 					<FontAwesomeIcon icon={faNpm} />
 				</a>
-				<a href="https://github.com/abalint88" target="_blank">
+				<a href="https://github.com/abalint88" title="My github page" rel="noopener" target="_blank">
 					<FontAwesomeIcon icon={faGithub} />
 				</a>
 			</div>

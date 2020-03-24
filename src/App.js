@@ -1,7 +1,12 @@
 import "babel-polyfill";
 
 import React, { useState, useEffect, useRef } from "react";
-import { BrowserRouter as Router, Route, useLocation, Switch } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Route,
+	useLocation,
+	Switch
+} from "react-router-dom";
 
 import Menu from "./Components/Menu";
 import Banner from "./Components/Banner";
@@ -9,6 +14,7 @@ import Banner from "./Components/Banner";
 import Intro from "./Components/Pages/Intro";
 import Projects from "./Components/Pages/Projects";
 import Blog from "./Components/Pages/Blog";
+import Nope404 from "./Components/Pages/Nope404";
 
 import Footer from "./Components/Footer";
 
@@ -101,6 +107,7 @@ const App = () => {
 				<Route component={Intro} exact path="/" />
 				<Route component={Projects} path="/projects" />
 				<Route component={Blog} path="/blog" />
+				<Route component={Nope404} />
 			</Switch>
 			<Footer />
 		</div>

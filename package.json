@@ -44,6 +44,7 @@
 		"grid-simpleflex": "^2.0.0",
 		"parcel-bundler": "^1.12.4",
 		"parcel-plugin-bundle-visualiser": "^1.2.0",
+		"parcel-plugin-custom-dist-structure": "^1.0.5",
 		"prettier": "^1.18.2",
 		"sass": "^1.23.1"
 	},
@@ -73,5 +74,20 @@
 			"last 2 safari version",
 			"ie 11"
 		]
+	},
+	"customDistStructure": {
+		"config": {
+			".js": "js",
+			".css": "css",
+			"img": [
+				".jpg",
+				".png",
+				".ico",
+				".webmanifest"
+			]
+		},
+		"options": {
+			"development": true
+		}
 	}
 }
