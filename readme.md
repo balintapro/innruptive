@@ -23,9 +23,9 @@
 
 ### Dev environment
 
-- Windows 10 64bit
-- NodeJS v10.11.0
-- NPM v6.4.1
+- Linux 5.4.24-1-MANJARO
+- node v13.10.1
+- npm  v6.14.2
 
 ### Used libs
 
