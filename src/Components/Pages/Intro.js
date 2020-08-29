@@ -1,17 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
+
+import { fetchApi } from "../Helper/fetch"
 
 const Intro = props => {
 	const { color } = props;
+	const [intro, setIntro] = useState({ entries: [] });
+
+	useEffect(() => {
+		fetchApi("frontpage/", setIntro)
+		return () => {
+			setIntro()
+		}
+	}, [])
 
 	return (
-		<section className={color}>
-			<div className="intro">
-				<h1>innruptive</h1>
-				<p className="sub">Front-end solutions made with care and speed</p>
-				<p>I`m Balint, a front-end guy based at Budapest, Hungary. Nice to have you here. This site is a collection of some stuff I do and love.</p>
-			</div>
+
+		<section className={color + " intro"}>
+			{
+				intro.entries.map((entry) => (
+					<div className="wrap" key={entry._id}>
+						<Helmet>
+							<meta name="description" content={entry.meta_description} />
+							<meta name="keywords" content={entry.meta_keywords} />
+						</Helmet>
+						<div dangerouslySetInnerHTML={{
+							__html: entry.description
+						}} />
+					</div>
+				))
+			}
 		</section>
+
 	);
 };
 
 export default Intro;
+
+

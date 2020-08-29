@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import Menu from "./Components/Menu";
 import Banner from "./Components/Banner";
 import Router from "./Router";
 import Footer from "./Components/Footer";
+
 
 const App = () => {
 	let location = useLocation();
@@ -26,19 +28,11 @@ const App = () => {
 		if (
 			location &&
 			location.pathname &&
-			location.pathname.includes("Projects")
+			location.pathname.includes("projects")
 		) {
 			setColor("white");
 			setColorRgb(white);
-			setPair(blue);
-		} else if (
-			location &&
-			location.pathname &&
-			location.pathname.includes("contact")
-		) {
-			setColor("white");
-			setColorRgb(white);
-			setPair(yellow);
+			setPair(white);
 		} else if (
 			location &&
 			location.pathname &&
@@ -46,7 +40,7 @@ const App = () => {
 		) {
 			setColor("white");
 			setColorRgb(white);
-			setPair(green);
+			setPair(white);
 		} else if (
 			location &&
 			location.pathname &&
@@ -58,7 +52,7 @@ const App = () => {
 		} else {
 			setColor("white");
 			setColorRgb(white);
-			setPair(blue);
+			setPair(green);
 		}
 	};
 
@@ -89,6 +83,10 @@ const App = () => {
 
 	return (
 		<div ref={domRef} className={color}>
+			<Helmet>
+				<title>innruptive - front-end solutions made with care and speed</title>
+				<meta name="description" content="Front-end solutions made with care and speed. Portfolio and blog of Balint Apro, front-end developer from Budapest." />
+			</Helmet>
 			<Menu />
 			<Banner />
 			<Router />

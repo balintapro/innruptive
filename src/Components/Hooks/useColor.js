@@ -19,7 +19,6 @@ const useColor = (defaultState) => {
 
 	useEffect(() => {
 		navigateTrack();
-		console.log(location)
 	}, []);
 
 	return [state, updateState];

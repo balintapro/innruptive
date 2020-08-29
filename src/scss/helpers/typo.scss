@@ -1,7 +1,7 @@
 /* prettier-ignore */
 /* prettier-ignore-end */
 
-@import url("https://fonts.googleapis.com/css?family=Lato|Overpass+Mono&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Lato:wght@300;400|Overpass+Mono:wght@300;400&display=swap&subset=latin-ext");
 
 $green: #52d890;
 $blue: #5eafa8;
@@ -38,6 +38,7 @@ $border: 1px solid $grey-300;
 $border-white: 1px solid $white;
 
 $smooth: all 0.15s ease 0s;
+$smooth-longer: all 0.5s ease 0s;
 
 $header-bg-position: 75px;
 
@@ -72,12 +73,12 @@ h1 {
 	line-height: $f-xmed;
 }
 h2 {
-	font-size: $f-mmed;
-	line-height: 2 + $f-mmed;
-}
-h3 {
 	font-size: $f-med;
 	line-height: 2 + $f-med;
+}
+h3 {
+	font-size: $f-smed;
+	line-height: 2 + $f-smed;
 }
 p,
 a,
@@ -88,8 +89,17 @@ th {
 	font-weight: 300;
 	line-height: 1.3;
 }
-li {
-	padding-bottom: 10px;
+
+a {
+	text-decoration: none;
+	&:hover {
+		color: $blue;
+	}
+}
+
+.time,
+.finished {
+	font-size: $f-small;
 }
 
 .button {

@@ -5,7 +5,7 @@ const Intro = props => {
 
 	return (
 		<section className={color}>
-			<div className="intro">
+			<div className="wrap">
 				<h1>404</h1>
 				<p className="sub">Page not found.</p>
 				<p>Move along, nothing to see here.</p>
