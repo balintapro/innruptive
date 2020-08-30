@@ -4,7 +4,6 @@
 	position: relative;
 	@include shadow;
 	.headline {
-		position: relative;
 		h2,
 		h3 {
 			margin: 0;
@@ -13,6 +12,9 @@
 
 		p {
 			margin-top: 0.5em;
+		}
+		.site {
+			position: relative;
 		}
 		.tooltip {
 			visibility: hidden;
@@ -98,11 +100,14 @@
 	padding: 2em;
 	@include shadow;
 	@media (max-width: 1023px) {
-		padding: 0;
 		.row {
 			margin-right: -15px;
 			margin-left: -15px;
 		}
+	}
+	@media (max-width: 639px) {
+		padding: 15px;
+
 	}
 	img {
 		border-radius: 3px;

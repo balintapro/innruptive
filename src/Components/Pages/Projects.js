@@ -39,7 +39,7 @@ const About = props => {
 				<div className="container">
 					<div className="row">
 						{projects.entries.map((project) => (
-							<div key={project._id} className="col-sm-4">
+							<div key={project._id} className="col-md-4">
 								<div className="card">
 									<div className="headline">
 										<a href={project.projectlink} target="_blank" className="site">
@@ -48,7 +48,7 @@ const About = props => {
 											<p dangerouslySetInnerHTML={{
 												__html: project.excerpt
 											}} />
-											<span className="tooltip">click to visit them</span>
+											<span className="tooltip">click here to visit them</span>
 										</a>
 									</div>
 									<div className="content" dangerouslySetInnerHTML={{

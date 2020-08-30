@@ -46,8 +46,8 @@ const Blog = props => {
 			<section className={"intro"}>
 				<h1>Blog</h1>
 			</section>
-			<section>
-				<div className="container list">
+			<section className="list">
+				<div className="container">
 					{posts.entries.map((post) => (
 						<div key={post._id} onClick={() => toPost(post.title)} className="row post">
 							<div className="col-sm-2">
