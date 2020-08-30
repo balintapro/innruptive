@@ -44,5 +44,8 @@ footer {
 
 	@media (max-width: 1023px) {
 		position: relative;
+		width: 100%;
+		flex-direction: row-reverse;
+		justify-content: space-between;
 	}
 }

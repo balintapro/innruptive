@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import CookieConsent, { Cookies } from "react-cookie-consent";
+
+import ReactGA from 'react-ga';
 
 import Menu from "./Components/Menu";
 import Banner from "./Components/Banner";
 import Router from "./Router";
 import Footer from "./Components/Footer";
-
 
 const App = () => {
 	let location = useLocation();
@@ -79,6 +81,7 @@ const App = () => {
 	useEffect(() => {
 		domRef.current.addEventListener("mousemove", shadow);
 		locationColor();
+		ReactGA.pageview(window.location.pathname + window.location.search);
 	}, [location, color, colorRgb, colorPair]);
 
 	return (
@@ -86,11 +89,50 @@ const App = () => {
 			<Helmet>
 				<title>innruptive - front-end solutions made with care and speed</title>
 				<meta name="description" content="Front-end solutions made with care and speed. Portfolio and blog of Balint Apro, front-end developer from Budapest." />
+
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://innruptive.com" />
+				<meta property="og:title" content="Innruptive" />
+				<meta property="og:description" content="Front-end solutions made with care and speed. Portfolio and blog of Balint Apro, front-end developer from Budapest." />
+				<meta property="og:image" content="" />
+
+				<meta property="twitter:card" content="summary_large_image" />
+				<meta property="twitter:url" content="https://innruptive.com" />
+				<meta property="twitter:title" content="Innruptive" />
+				<meta property="twitter:description" content="Front-end solutions made with care and speed. Portfolio and blog of Balint Apro, front-end developer from Budapest." />
+				<meta property="twitter:image" content="" />
+
 			</Helmet>
 			<Menu />
 			<Banner />
 			<Router />
 			<Footer />
+			<CookieConsent
+				buttonText="OKAY"
+				cookieName="most-branding.com"
+				style={{
+					background: "#191919",
+					borderTop: "1px solid #2f2f2f",
+					fontSize: "14px",
+					lineHeight: "16px"
+				}}
+				buttonStyle={{
+					borderRadius: "3px",
+					boxShadow: "none",
+					cursor: "pointer",
+					flex: "0 0 auto",
+					margin: "4px",
+					padding: "8px 16px",
+					background: "#52d890",
+					color: "#fffff",
+					textAlign: "center",
+					textTransform: "uppercase",
+					border: "none",
+					transition: "all 0.25s ease"
+				}}
+			>
+				This site is using Google Analitics <a target="_blank" style={{ color: "#52d890", textDecoration: "none" }} href="https://policies.google.com/privacy">Privacy Policy</a> and <a target="_blank" style={{ color: "#52d890", textDecoration: "none" }} href="https://policies.google.com/terms">Terms of Service</a>.
+      </CookieConsent>
 		</div>
 	);
 };

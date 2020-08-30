@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+
+import ReactGA from 'react-ga';
+
 import { fetchApi } from "./Components/Helper/fetch"
 
 import Intro from "./Components/Pages/Intro";
@@ -15,6 +18,7 @@ const Routes = () => {
 		return () => {
 			setPosts()
 		}
+
 	}, [])
 	return (
 		<Switch>

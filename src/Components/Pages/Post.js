@@ -31,8 +31,22 @@ const Post = ({ entries }) => {
 				{entries.map((post) => (
 					<div className="blog" key={post._id}>
 						<Helmet>
+							
 							<meta name="description" content={post.excerpt} />
 							<meta name="keywords" content={post.meta_keywords} />
+
+							<meta property="og:type" content="website" />
+							<meta property="og:url" content={"https://innruptive.com/post/" + post.title_slug} />
+							<meta property="og:title" content={"Innruptive" + post.title} />
+							<meta property="og:description" content={post.excerpt} />
+							<meta property="og:image" content={"https://innruptive.com/api/storage/uploads" + post.image.path} />
+
+							<meta property="twitter:card" content={"https://innruptive.com/api/storage/uploads" + post.image.path} />
+							<meta property="twitter:url" content={"https://innruptive.com/post/" + post.title_slug} />
+							<meta property="twitter:title" content={"Innruptive" + post.title} />
+							<meta property="twitter:description" content={post.excerpt} />
+							<meta property="twitter:image" content={"https://innruptive.com/api/storage/uploads" + post.image.path} />
+						
 						</Helmet>
 						<div className="main" >
 							<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />

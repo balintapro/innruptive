@@ -18,11 +18,24 @@ const About = props => {
 		<>
 			<Helmet>
 				<meta name="description" content="Projects, I'm proud of." />
+				<meta name="keywords" content="Balint, Apro, blog, front-end, developer, disruptive innovation, portfolio" />
+
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://innruptive.com/projects/" />
+				<meta property="og:title" content="Innruptive - projects" />
+				<meta property="og:description" content="Projects, I'm proud of." />
+				<meta property="og:image" content="https://innruptive.com/api/storage/uploads/2020/08/30/5f4bd27e69feeinnruptive.png" />
+
+				<meta property="twitter:card" content="https://innruptive.com/api/storage/uploads/2020/08/30/5f4bd27e69feeinnruptive.png" />
+				<meta property="twitter:url" content="https://innruptive.com/projects/" />
+				<meta property="twitter:title" content="Innruptive - projects" />
+				<meta property="twitter:description" content="Projects, I'm proud of." />
+				<meta property="twitter:image" content="https://innruptive.com/api/storage/uploads/2020/08/30/5f4bd27e69feeinnruptive.png" />
 			</Helmet>
-			<section className={color + " intro"}>
+			<section className={"intro"}>
 				<h1>Projects</h1>
 			</section>
-			<section>
+			<section className="projects">
 				<div className="container">
 					<div className="row">
 						{projects.entries.map((project) => (

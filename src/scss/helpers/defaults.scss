@@ -12,8 +12,6 @@ code,
 	transition: $smooth;
 }
 
-$rowspace: 1em;
-
 [class*="col-md-"],
 [class*="col-sm-"] {
 	padding-right: $rowspace;
@@ -55,6 +53,9 @@ img {
 		right: 2rem;
 		opacity: 1;
 	}
+	@media (max-width: 1023px) {
+		top: 5em;
+	}
 }
 
 .error {
@@ -83,10 +84,22 @@ section {
 		max-width: 100%;
 		padding: 15px;
 		margin-top: 60px;
+		&.projects {
+			padding: 0;
+		}
+		&:nth-of-type(2) {
+			margin-top: 0;
+		}
 	}
 	&.intro {
 		max-width: calc(100% - 125px);
 		width: 600px;
+		@media (max-width: 1023px) {
+			max-width: 100%;
+		}
+	}
+	&.full{
+		min-height: calc(100vh - 126px);
 	}
 }
 

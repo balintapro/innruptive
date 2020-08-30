@@ -42,6 +42,10 @@ $smooth-longer: all 0.5s ease 0s;
 
 $header-bg-position: 75px;
 
+$rowspace: 1em;
+$border: 8px solid $grey-050;
+
+
 // Styles
 body {
 	font-family: $font-default;
@@ -71,6 +75,9 @@ h6 {
 h1 {
 	font-size: $f-xmed;
 	line-height: 1.25;
+	@media (max-width: 1023px) {
+		font-size: $f-mmed;
+	}
 }
 
 h2 {
@@ -109,18 +116,29 @@ li {
 	}
 }
 
+li ul {
+	@media (max-width: 1023px) {
+		padding-inline-start: 1em;
+	}
+}
+
 code {
 	background: $grey-050;
 	border-radius: 3px;
 	padding: 0.1em 0 0.3em;
+	font-size: $f-small;
+	font-family: $font-header;
 	&:hover {
 		cursor: pointer;
 		background: $grey-100;
 	}
+	@media (max-width: 1023px) {
+		font-size: $f-small;
+	}
 }
 
 .content > ul {
-	border-left: 8px solid $grey-050;
+	border-left: $border;
 }
 
 .time,

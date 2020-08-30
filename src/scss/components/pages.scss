@@ -44,7 +44,18 @@
 		margin-right: 1em;
 		filter: grayscale(100%);
 	}
-
+	@media (max-width: 1023px) {
+		padding: 2em 15px;
+		.headline {
+			img {
+				filter: grayscale(0%);
+			}
+			.tooltip {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
 	h3 {
 		font-family: $font-default;
 	}
@@ -60,7 +71,8 @@
 }
 
 .blog,
-.card {
+.card,
+.intro {
 	a {
 		background: $black;
 		color: $green;
@@ -85,6 +97,13 @@
 .list {
 	padding: 2em;
 	@include shadow;
+	@media (max-width: 1023px) {
+		padding: 0;
+		.row {
+			margin-right: -15px;
+			margin-left: -15px;
+		}
+	}
 	img {
 		border-radius: 3px;
 	}
@@ -101,7 +120,7 @@
 		margin-top: 1em;
 		margin-top: 15px;
 	}
-	.time{
+	.time {
 		font-size: $f-smed;
 	}
 }
