@@ -109,7 +109,7 @@ const App = () => {
 			<Footer />
 			<CookieConsent
 				buttonText="OKAY"
-				cookieName="most-branding.com"
+				cookieName="innruptive.com"
 				style={{
 					background: "#191919",
 					borderTop: "1px solid #2f2f2f",
