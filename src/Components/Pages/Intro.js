@@ -15,7 +15,6 @@ const Intro = props => {
 	}, [])
 
 	return (
-
 		<section className={color + " intro"}>
 			{
 				intro.entries.map((entry) => (

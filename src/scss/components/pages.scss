@@ -1,0 +1,107 @@
+.card {
+	padding: 2em;
+	height: 100%;
+	position: relative;
+	@include shadow;
+	.headline {
+		position: relative;
+		h2,
+		h3 {
+			margin: 0;
+			line-height: 1;
+		}
+
+		p {
+			margin-top: 0.5em;
+		}
+		.tooltip {
+			visibility: hidden;
+			opacity: 0;
+			background: $black;
+			color: $green;
+			border-radius: 3px;
+			padding: 0.1em 0 0.3em;
+			position: absolute;
+			bottom: 0;
+		}
+		&:hover {
+			img {
+				filter: grayscale(0%);
+			}
+			.tooltip {
+				visibility: visible;
+				opacity: 1;
+				&:hover {
+					color: $blue;
+				}
+			}
+		}
+	}
+
+	img {
+		max-width: 60px;
+		float: left;
+		margin-right: 1em;
+		filter: grayscale(100%);
+	}
+
+	h3 {
+		font-family: $font-default;
+	}
+
+	p {
+		margin: 0;
+	}
+	.finished {
+		position: absolute;
+		bottom: 2em;
+		right: 2em;
+	}
+}
+
+.blog,
+.card {
+	a {
+		background: $black;
+		color: $green;
+		text-decoration: none;
+		border-radius: 3px;
+		padding: 0.1em 0 0.3em;
+		&:hover {
+			color: $blue;
+		}
+		&.site {
+			background: none;
+			color: initial;
+			display: block;
+			margin: 0 0 1em 0;
+			width: 100%;
+			overflow: hidden;
+			height: 100px;
+		}
+	}
+}
+
+.list {
+	padding: 2em;
+	@include shadow;
+	img {
+		border-radius: 3px;
+	}
+	&:hover {
+		cursor: pointer;
+		border-radius: 3px;
+	}
+	h1,
+	h2,
+	h3,
+	p,
+	.time {
+		display: block;
+		margin-top: 1em;
+		margin-top: 15px;
+	}
+	.time{
+		font-size: $f-smed;
+	}
+}

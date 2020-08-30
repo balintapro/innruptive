@@ -34,19 +34,25 @@ const Blog = props => {
 				<h1>Blog</h1>
 			</section>
 			<section>
-				<div className="container blog">
+				<div className="container list">
 					{posts.entries.map((post) => (
 						<div key={post._id} onClick={() => toPost(post.title)} className="row post">
-							<div className="col-sm-8">
+							<div className="col-sm-2">
+								<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />
+							</div>
+							<div className="col-sm-3">
 								<h2>{post.title}</h2>
+							</div>
+							<div className="col-sm-5">
 								<p className="excerpt" dangerouslySetInnerHTML={{
 									__html: post.excerpt
 								}} />
-								<span dangerouslySetInnerHTML={{
+							</div>
+							<div className="col-sm-2">
+								<span className="time" dangerouslySetInnerHTML={{
 									__html: parseTime(post._modified)
 								}}></span>
 							</div>
-							<div className="col-sm-4 bg" style={{ backgroundImage: "url(https://innruptive.com/api/storage/uploads" + post.image.path + ")" }} />
 						</div>
 					))}
 				</div>

@@ -35,7 +35,7 @@ const About = props => {
 											<p dangerouslySetInnerHTML={{
 												__html: project.excerpt
 											}} />
-											<span className="tooltip">Click and visit them!</span>
+											<span className="tooltip">click to visit them</span>
 										</a>
 									</div>
 									<div className="content" dangerouslySetInnerHTML={{

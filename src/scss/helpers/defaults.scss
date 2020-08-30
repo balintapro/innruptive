@@ -7,7 +7,8 @@
 a,
 code,
 .card,
-.tooltip {
+.tooltip,
+.list {
 	transition: $smooth;
 }
 
@@ -23,6 +24,36 @@ $rowspace: 1em;
 	border-radius: 3px;
 	&:hover {
 		box-shadow: 0 0px 9px 6px rgb(0 0 0 / 5%);
+	}
+}
+
+img {
+	width: 100%;
+}
+
+.popup {
+	position: fixed;
+	top: 2rem;
+	right: -100%;
+	opacity: 0;
+	background: $black;
+	color: $white;
+	border-radius: 3px;
+	padding: 0.5em;
+	transition: $smooth-longer;
+	p {
+		line-height: 1;
+		margin: 0;
+		code {
+			background: $black;
+			margin-left: 0.5em;
+			color: $green;
+			font-weight: 400;
+		}
+	}
+	&.active {
+		right: 2rem;
+		opacity: 1;
 	}
 }
 

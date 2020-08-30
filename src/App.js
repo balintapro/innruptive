@@ -40,7 +40,7 @@ const App = () => {
 		) {
 			setColor("white");
 			setColorRgb(white);
-			setPair(white);
+			setPair(blue);
 		} else if (
 			location &&
 			location.pathname &&

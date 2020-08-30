@@ -70,16 +70,20 @@ h6 {
 }
 h1 {
 	font-size: $f-xmed;
-	line-height: $f-xmed;
+	line-height: 1.25;
 }
+
 h2 {
 	font-size: $f-med;
-	line-height: 2 + $f-med;
+	display: block;
+	line-height: 1.2;
+	margin-top: 1.25em;
 }
 h3 {
 	font-size: $f-smed;
-	line-height: 2 + $f-smed;
+	line-height: 1;
 }
+
 p,
 a,
 li,
@@ -95,6 +99,28 @@ a {
 	&:hover {
 		color: $blue;
 	}
+}
+
+ul,
+li {
+	line-height: 1.25;
+	ul {
+		margin-top: 0.5em;
+	}
+}
+
+code {
+	background: $grey-050;
+	border-radius: 3px;
+	padding: 0.1em 0 0.3em;
+	&:hover {
+		cursor: pointer;
+		background: $grey-100;
+	}
+}
+
+.content > ul {
+	border-left: 8px solid $grey-050;
 }
 
 .time,
