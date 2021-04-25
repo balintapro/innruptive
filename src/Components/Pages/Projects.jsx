@@ -3,8 +3,7 @@ import { Helmet } from "react-helmet";
 
 import { fetchApi } from "../Helper/fetch"
 
-const About = props => {
-	const { color } = props;
+const About = () => {
 	const [projects, setProjects] = useState({ entries: [] });
 
 	useEffect(() => {
@@ -42,7 +41,7 @@ const About = props => {
 							<div key={project._id} className="col-md-4">
 								<div className="card">
 									<div className="headline">
-										<a href={project.projectlink} target="_blank" className="site">
+										<a href={project.projectlink} target="_blank" rel="noreferrer" className="site">
 											<img src={"https://innruptive.com/api/storage/uploads" + project.image.path} alt={project.image.title} />
 											<h2>{project.title}</h2>
 											<p dangerouslySetInnerHTML={{

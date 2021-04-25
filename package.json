@@ -1,97 +1,61 @@
 {
-	"name": "inruptive-boilerplate",
-	"version": "1.0.0",
-	"description": "Innruptive react build",
-	"main": "src/App.js",
-	"scripts": {
-		"format": "prettier --write \"src/**/*.{js,jsx,css,scss,json} \"",
-		"format:check": "prettier --list-different \"src/**/*.{js,jsx,css,scss,json} \"",
-		"lint": "eslint \"src/*.{js,jsx}\"",
-		"lint:fix": "eslint --fix \"src/*.{js,jsx}\"",
-		"dev": "parcel src/index.html --no-cache",
-		"build": "parcel build src/index.html --experimental-scope-hoisting --public-url https://innruptive.com/",
-		"sitemap": "node sitemap.js",
-		"robots": "generate-robotstxt --config ./robots.js ./dist/robots.txt",
-		"prod": "rm -rf dist && npm run build && npm run sitemap && npm run robots"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git@github.com:abalint88/innruptive.git"
-	},
-	"keywords": [],
-	"author": "Balint Apro",
-	"license": "MIT",
-	"homepage": "https://innruptive.com/",
-	"devDependencies": {
-		"@babel/core": "^7.11.4",
-		"@babel/plugin-proposal-class-properties": "^7.10.4",
-		"@babel/plugin-transform-runtime": "^7.11.0",
-		"@babel/preset-env": "^7.11.0",
-		"@babel/preset-react": "^7.10.4",
-		"@babel/register": "^7.10.5",
-		"@emotion/core": "^10.0.35",
-		"@fortawesome/fontawesome-svg-core": "^1.2.30",
-		"@fortawesome/free-solid-svg-icons": "^5.14.0",
-		"@fortawesome/react-fontawesome": "^0.1.11",
-		"autoprefixer": "^9.8.6",
-		"babel-eslint": "^10.1.0",
-		"babel-node": "0.0.1-security",
-		"eslint": "^7.7.0",
-		"eslint-config-prettier": "^6.11.0",
-		"eslint-plugin-import": "^2.22.0",
-		"eslint-plugin-jsx-a11y": "^6.3.1",
-		"eslint-plugin-prettier": "^3.1.4",
-		"eslint-plugin-react": "^7.20.6",
-		"generate-robotstxt": "^8.0.3",
-		"grid-simpleflex": "^2.0.0",
-		"parcel-bundler": "^1.12.4",
-		"parcel-plugin-bundle-visualiser": "^1.2.0",
-		"parcel-plugin-custom-dist-structure": "^1.1.14",
-		"prettier": "^2.1.1",
-		"react-cookie-consent": "^5.1.3",
-		"react-router": "^5.2.0",
-		"sass": "^1.26.10"
-	},
-	"dependencies": {
-		"@fortawesome/free-brands-svg-icons": "^5.14.0",
-		"@material-ui/core": "^4.11.0",
-		"@types/react": "^16.9.48",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"react-ga": "^3.1.2",
-		"react-helmet": "^6.1.0",
-		"react-render-html": "^0.6.0",
-		"react-router-dom": "^5.2.0",
-		"react-router-prop-types": "^1.0.4",
-		"react-router-sitemap": "^1.2.0"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all",
-			"ie 11"
-		],
-		"development": [
-			"last 2 chrome version",
-			"last 2 firefox version",
-			"last 2 safari version",
-			"ie 11"
-		]
-	},
-	"customDistStructure": {
-		"config": {
-			".js": "js",
-			".css": "css",
-			"img": [
-				".jpg",
-				".png",
-				".ico",
-				".webmanifest"
-			]
-		},
-		"options": {
-			"development": true
-		}
-	}
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "grid-simpleflex": "^2.0.0",
+    "node-sass": "^5.0.0",
+    "react": "^17.0.2",
+    "react-cookie-consent": "^6.2.3",
+    "react-dom": "^17.0.2",
+    "react-ga": "^3.3.0",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "serve": "^11.3.2",
+    "web-vitals": "^1.0.1",
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

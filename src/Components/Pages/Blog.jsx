@@ -5,17 +5,12 @@ import { Helmet } from "react-helmet";
 import { fetchApi } from "../Helper/fetch"
 import { parseTime } from "../Helper/utils"
 
-const Blog = props => {
-	const { color } = props;
+const Blog = () => {
 	const [posts, setPosts] = useState({ entries: [] });
 	const history = useHistory();
 
 	function toPost(title) {
-		let url = title
-			.toLowerCase()
-			.replace(/ /g, '-')
-			.replace(/[^\w-]+/g, '');
-		history.push('/post/' + url);
+		history.push('/post/' + title);
 	}
 
 	useEffect(() => {
@@ -49,22 +44,25 @@ const Blog = props => {
 			<section className="list">
 				<div className="container">
 					{posts.entries.map((post) => (
-						<div key={post._id} onClick={() => toPost(post.title)} className="row post">
-							<div className="col-sm-2">
-								<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />
-							</div>
-							<div className="col-sm-3">
-								<h2>{post.title}</h2>
-							</div>
-							<div className="col-sm-5">
-								<p className="excerpt" dangerouslySetInnerHTML={{
-									__html: post.excerpt
-								}} />
-							</div>
-							<div className="col-sm-2">
-								<span className="time" dangerouslySetInnerHTML={{
-									__html: parseTime(post._modified)
-								}}></span>
+						<div>
+							<div key={post._id} onClick={() => toPost(post.title_slug)} className="row post">
+								<div className="col-sm-2">
+									<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />
+								</div>
+								<div className="col-sm-3">
+								{post.title}
+									<h2>{post.title}</h2>
+								</div>
+								<div className="col-sm-5">
+									<p className="excerpt" dangerouslySetInnerHTML={{
+										__html: post.excerpt
+									}} />
+								</div>
+								<div className="col-sm-2">
+									<span className="time" dangerouslySetInnerHTML={{
+										__html: parseTime(post._modified)
+									}}></span>
+								</div>
 							</div>
 						</div>
 					))}

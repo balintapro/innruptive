@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-
 import { fetchApi } from "./Components/Helper/fetch"
 
 import Intro from "./Components/Pages/Intro";
@@ -11,6 +10,7 @@ import Nope404 from "./Components/Pages/Nope404";
 
 const Routes = () => {
 	const [posts, setPosts] = useState({ entries: [] });
+
 	useEffect(() => {
 		fetchApi("blog/", setPosts)
 		return () => {

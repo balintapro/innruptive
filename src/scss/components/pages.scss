@@ -98,7 +98,6 @@
 
 .list {
 	padding: 2em;
-	@include shadow;
 	@media (max-width: 1023px) {
 		.row {
 			margin-right: -15px;
@@ -127,5 +126,10 @@
 	}
 	.time {
 		font-size: $f-smed;
+	}
+	.post {
+		padding: 2rem;
+		margin-bottom: 1rem;
+		@include shadow
 	}
 }

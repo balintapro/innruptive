@@ -3,8 +3,9 @@ import { Helmet } from "react-helmet";
 
 import { fetchApi } from "../Helper/fetch"
 
-const Intro = props => {
-	const { color } = props;
+import TwitterContainer from "../Helper/twitter"
+
+const Intro = () => {
 	const [intro, setIntro] = useState({ entries: [] });
 
 	useEffect(() => {
@@ -41,6 +42,9 @@ const Intro = props => {
 					</div>
 				))
 			}
+			<div className="wrap">
+			<TwitterContainer />
+			</div>
 		</section>
 	);
 };

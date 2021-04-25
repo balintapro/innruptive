@@ -13,19 +13,19 @@ const Header = props => {
 	return (
 		<header className={color}>
 			<nav className="nav crt" id="nav">
-				<Link to="/">
+				<Link to="/" className="home">
 					<b>
 						<FontAwesomeIcon icon={faTerminal} />
 					</b>
 					<span>Home</span>
 				</Link>
-				<Link to="/projects">
+				<Link to="/projects" className="projects">
 					<b>
 						<FontAwesomeIcon icon={faProjectDiagram} />
 					</b>
 					<span>Projects</span>
 				</Link>
-				<Link to="/blog">
+				<Link to="/blog" className="blog">
 					<b>
 						<FontAwesomeIcon icon={faThList} />
 					</b>

@@ -3,13 +3,16 @@ import { parseTime, toClipboard } from "../Helper/utils"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import { Helmet } from "react-helmet";
+import { useHistory } from 'react-router-dom';
 
 const Post = ({ entries }) => {
 	const [code, setCode] = useState();
 	const article = useRef(null);
 	const popup = useRef(null);
 	const [visible, setVisible] = useState("");
-
+	const history = useHistory();
+	const currUrl = useState(history.location.pathname.split('/').pop())
+	
 	const copycode = e => {
 		if (e.target.nodeName === "CODE") {
 			toClipboard(e.target.innerText);
@@ -28,10 +31,10 @@ const Post = ({ entries }) => {
 	return (
 		<>
 			<section ref={article} className="intro">
-				{entries.map((post) => (
+				{entries.filter(entry => entry.title_slug.includes(currUrl[0])).map((post) => (
 					<div className="blog" key={post._id}>
 						<Helmet>
-							
+
 							<meta name="description" content={post.excerpt} />
 							<meta name="keywords" content={post.meta_keywords} />
 
@@ -46,7 +49,7 @@ const Post = ({ entries }) => {
 							<meta property="twitter:title" content={"Innruptive" + post.title} />
 							<meta property="twitter:description" content={post.excerpt} />
 							<meta property="twitter:image" content={"https://innruptive.com/api/storage/uploads" + post.image.path} />
-						
+
 						</Helmet>
 						<div className="main" >
 							<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />
