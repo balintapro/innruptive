@@ -3,8 +3,6 @@ import { Helmet } from "react-helmet";
 
 import { fetchApi } from "../Helper/fetch"
 
-import TwitterContainer from "../Helper/twitter"
-
 const Intro = () => {
 	const [intro, setIntro] = useState({ entries: [] });
 
@@ -42,9 +40,7 @@ const Intro = () => {
 					</div>
 				))
 			}
-			<div className="wrap">
-			<TwitterContainer />
-			</div>
+
 		</section>
 	);
 };

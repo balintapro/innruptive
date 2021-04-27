@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-
 import { fetchApi } from "../Helper/fetch"
 
 const About = () => {
@@ -31,9 +30,6 @@ const About = () => {
 				<meta property="twitter:description" content="Projects, I'm proud of." />
 				<meta property="twitter:image" content="https://innruptive.com/api/storage/uploads/2020/08/30/5f4bd27e69feeinnruptive.png" />
 			</Helmet>
-			<section className={"intro"}>
-				<h1>Projects</h1>
-			</section>
 			<section className="projects">
 				<div className="container">
 					<div className="row">

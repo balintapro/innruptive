@@ -6,11 +6,11 @@ import { fetchApi } from "../Helper/fetch"
 import { parseTime } from "../Helper/utils"
 
 const Blog = () => {
-	const [posts, setPosts] = useState({ entries: [] });
+	const [posts, setPosts] = useState([]);
 	const history = useHistory();
 
 	function toPost(title) {
-		history.push('/post/' + title);
+		history.push('/blog/' + title);
 	}
 
 	useEffect(() => {
@@ -38,35 +38,28 @@ const Blog = () => {
 				<meta property="twitter:image" content="https://innruptive.com/api/storage/uploads/2020/08/30/5f4bd27e69feeinnruptive.png" />
 
 			</Helmet>
-			<section className={"intro"}>
-				<h1>Blog</h1>
-			</section>
 			<section className="list">
-				<div className="container">
-					{posts.entries.map((post) => (
-						<div>
-							<div key={post._id} onClick={() => toPost(post.title_slug)} className="row post">
-								<div className="col-sm-2">
-									<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />
-								</div>
-								<div className="col-sm-3">
+				{posts.map((post) => (
+						<div key={post._id} onClick={() => toPost(post.title_slug)} className="post">
+							<div className="col-sm-2">
+								<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />
+							</div>
+							<div className="col-sm-3">
 								{post.title}
-									<h2>{post.title}</h2>
-								</div>
-								<div className="col-sm-5">
-									<p className="excerpt" dangerouslySetInnerHTML={{
-										__html: post.excerpt
-									}} />
-								</div>
-								<div className="col-sm-2">
-									<span className="time" dangerouslySetInnerHTML={{
-										__html: parseTime(post._modified)
-									}}></span>
-								</div>
+								<h2>{post.title}</h2>
+							</div>
+							<div className="col-sm-5">
+								<p className="excerpt" dangerouslySetInnerHTML={{
+									__html: post.excerpt
+								}} />
+							</div>
+							<div className="col-sm-2">
+								<span className="time" dangerouslySetInnerHTML={{
+									__html: parseTime(post._modified)
+								}}></span>
 							</div>
 						</div>
-					))}
-				</div>
+				))}
 			</section>
 		</>
 	);

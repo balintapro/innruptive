@@ -1,18 +1,19 @@
 header {
   top: 0;
-  position: fixed;
   max-width: 100%;
   width: 120px;
   z-index: 4;
-  height: calc(100vh - 40%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   @media (max-width: 1023px) {
     width: 100%;
     z-index: 4;
     height: 60px;
     padding: 5px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0)
+    );
   }
 }
 nav {
@@ -33,7 +34,6 @@ nav {
     border-radius: $menu-rad;
     flex-direction: row;
     align-items: center;
-    box-shadow: 1px -5px 20px 11px rgba(0, 0, 0, 34%);
   }
   a {
     display: block;
@@ -88,13 +88,36 @@ nav {
         }
       }
     }
+    &.active {
+      b {
+        color: $blue;
+        border-radius: 3px 0 0 3px;
+      }
+      span {
+        width: calc(100% - 60px);
+        border-radius: 0 3px 3px 0;
+        @media (max-width: 1023px) {
+          border-radius: 0 3px 3px 0;
+        }
+      }
+    }
     &.home,
     &.blog {
+      &.active {
+        @media (max-width: 1023px) {
+          width: 124px;
+        }
+      }
       &:hover {
         width: 124px;
       }
     }
     &.projects {
+      &.active {
+        @media (max-width: 1023px) {
+          width: 171px;
+        }
+      }
       &:hover {
         width: 171px;
       }

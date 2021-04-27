@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faTerminal,
@@ -7,33 +7,36 @@ import {
 	faThList
 } from "@fortawesome/free-solid-svg-icons";
 
+const isPost = window.location.href.includes("post");
+console.log(isPost)
+
 // header component for display routing
-const Header = props => {
+const Menu = (props, isMobile, location) => {
 	const { color } = props;
 	return (
 		<header className={color}>
 			<nav className="nav crt" id="nav">
-				<Link to="/" className="home">
+				<NavLink exact to="/" className="home" activeClassName="active">
 					<b>
 						<FontAwesomeIcon icon={faTerminal} />
 					</b>
 					<span>Home</span>
-				</Link>
-				<Link to="/projects" className="projects">
+				</NavLink>
+				<NavLink exact to="/projects" className="projects" activeClassName="active">
 					<b>
 						<FontAwesomeIcon icon={faProjectDiagram} />
 					</b>
 					<span>Projects</span>
-				</Link>
-				<Link to="/blog" className="blog">
+				</NavLink>
+				<NavLink to="/blog" className="blog" activeClassName="active">
 					<b>
 						<FontAwesomeIcon icon={faThList} />
 					</b>
 					<span>Blog</span>
-				</Link>
+				</NavLink>
 			</nav>
 		</header>
 	);
 };
 
-export default Header;
+export default Menu;

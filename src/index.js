@@ -28,6 +28,21 @@ console.log('%c INNRUPTIVE', green);
 console.log('%c Front-end solutions made with care and speed.', white);
 console.log('%c Balint Apro - balint@innruptive.com', green);
 
+const detectScreen = () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+detectScreen()
+
+window.addEventListener('resize', () => {
+  detectScreen()
+});
+
+window.addEventListener('orientationchange', () => {
+  detectScreen()
+});
+
 ReactDOM.render(
   <Router>
     <App />

@@ -1,2 +1,105 @@
-@import "~grid-simpleflex/index.scss";
+.grd {
+  display: grid;
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+  grid-template-columns: 120px 1fr 1fr 280px;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "menu content content right-bar"
+    "menu content content right-bar"
+    "footer content content right-bar";
+  overflow: auto;
+}
+header {
+  grid-area: menu;
+}
+footer {
+  grid-area: footer;
+}
 
+.right-bar {
+  grid-area: right-bar;
+  margin: 15px;
+  padding: 15px;
+  border-radius: $menu-rad;
+  background: $grey-100;
+  .inner-cont {
+    height: 100%;
+    border-radius: 4px;
+    // safari hack
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    overflow: hidden;
+    max-height: 100%;
+    .decor {
+      height: 100%;
+      overflow: scroll;
+    }
+  }
+}
+.content {
+  grid-area: content;
+  overflow-y: scroll;
+  > div {
+    overflow-y: scroll;
+  }
+}
+
+.right-bar section {
+  max-width: 100%;
+  padding: 0;
+}
+
+@media (max-width: 1023px) {
+  .right-bar {
+    display: none;
+  }
+  .grd {
+    grid-template-areas:
+      "menu"
+      "content"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 1fr 60px;
+  }
+  .content {
+    max-height: calc(100vh);
+    > div {
+      overflow-y: scroll;
+    }
+  }
+}
+
+/* Customize website's scrollbar like Mac OS
+Not supports in Firefox and IE */
+
+/* total width */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* background of the scrollbar except button or resizer */
+*::-webkit-scrollbar-track {
+  display: none;
+}
+
+/* scrollbar itself */
+*::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+/* set button(top and bottom of the scrollbar) */
+*::-webkit-scrollbar-button {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+html {
+  box-sizing: border-box;
+  overflow: hidden;
+}

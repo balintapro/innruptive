@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import CookieConsent from "react-cookie-consent";
 
+import useDeviceDetect from "./Components/Helper/utils"
+
 import ReactGA from 'react-ga';
+import TwitterContainer from "./Components/Helper/twitter"
 
 import Menu from "./Components/Menu";
-import Banner from "./Components/Banner";
 import Router from "./Router";
 import Footer from "./Components/Footer";
 
@@ -15,73 +17,39 @@ const App = () => {
 	const [color, setColor] = useState();
 	const [colorRgb, setColorRgb] = useState();
 	const [colorPair, setPair] = useState();
-	const domRef = useRef(null);
+	const { isMobile } = useDeviceDetect();
 
 	const green = "rgb(82, 216, 144, 0.2)";
 	const blue = "rgb(94, 175, 168, 0.2)";
-	const orange = "rgb(220, 112, 73, 0.2)";
 	const white = "#fff";
 
 	useEffect(() => {
-    const locationColor = () => {
-      if (
-        location &&
-        location.pathname &&
-        location.pathname.includes("projects")
-      ) {
-        setColor("white");
-        setColorRgb(white);
-        setPair(white);
-      } else if (
-        location &&
-        location.pathname &&
-        location.pathname.includes("blog")
-      ) {
-        setColor("white");
-        setColorRgb(white);
-        setPair(blue);
-      } else if (
-        location &&
-        location.pathname &&
-        location.pathname.includes("photos")
-      ) {
-        setColor("white");
-        setColorRgb(white);
-        setPair(orange);
-      } else {
-        setColor("white");
-        setColorRgb(white);
-        setPair(green);
-      }
-    };
-  
-    const shadow = e => {
-      const movement = 200;
-      const { clientWidth: width } = domRef.current;
-      let { offsetX: x, offsetY: y } = e;
-  
-      if (this !== e.target) {
-        x = x + e.target.offsetLeft;
-        y = y + e.target.offsetTop;
-      }
-      const xMovement = Math.round((x / width) * movement - movement / 2);
-      const yMovement = Math.round((y / width) * movement - movement / 2);
-
-      domRef.current.style.boxShadow = `
-      inset ${-50 + xMovement * 2}px ${yMovement * 1}px 0 ${colorRgb},
-      inset ${-50 + xMovement * 2}px ${yMovement * 1}px 0 ${colorPair},
-      inset ${350 + xMovement * 2}px ${yMovement * -1}px 0 ${colorRgb},
-      inset ${-50 + xMovement * 2}px ${yMovement * -3}px 0 ${colorPair}
-      `;
-    };
-
-		domRef.current.addEventListener("mousemove", shadow);
+		const locationColor = () => {
+			if (
+				location?.pathname?.includes("projects")
+			) {
+				setColor("white");
+				setColorRgb(white);
+				setPair(white);
+			} else if (
+				location?.pathname?.includes("blog")
+			) {
+				setColor("white");
+				setColorRgb(white);
+				setPair(blue);
+			}
+			else {
+				setColor("white");
+				setColorRgb(white);
+				setPair(green);
+			}
+		};
 		locationColor();
 		ReactGA.pageview(window.location.pathname + window.location.search);
 	}, [colorPair, colorRgb, location]);
 
 	return (
-		<div ref={domRef} className={color}>
+		<div className={"grd " + color}>
 			<Helmet>
 				<title>innruptive - front-end solutions made with care and speed</title>
 				<meta name="description" content="Front-end solutions made with care and speed. Portfolio and blog of Balint Apro, front-end developer from Budapest." />
@@ -99,10 +67,15 @@ const App = () => {
 				<meta property="twitter:image" content="" />
 
 			</Helmet>
-			<Menu />
-			<Banner />
-			<Router />
+			<Menu isMobile={isMobile} location={location} />
 			<Footer />
+
+			<Router />
+			{isMobile ? "" : (
+				<div className="right-bar">
+					<TwitterContainer />
+				</div>
+			)}
 			<CookieConsent
 				buttonText="OKAY"
 				cookieName="innruptive.com"

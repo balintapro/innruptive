@@ -8,5 +8,15 @@ export async function fetchApi(endpoint, setter) {
         }
     );
     let data = await response.json();
-    setter(data);
+    if (endpoint.includes("blog") && data) {
+        console.log(data)
+        let sortPosts = data.entries.sort((a, b) => {
+            return b._created - a._created
+        })
+        setter(sortPosts)
+    }
+    else {
+        setter(data);
+
+    }
 }

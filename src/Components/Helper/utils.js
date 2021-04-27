@@ -1,3 +1,5 @@
+import React from "react";
+
 export const backend = "http://backend.innruptive.com/api/1.1/tables/innruptive/rows"
 
 export function parseTime(stamp) {
@@ -26,4 +28,23 @@ export const toClipboard = (str) => {
     document.execCommand("copy");
 
     document.body.removeChild(clipboard);
+}
+
+// utils/useDeviceDetect.js
+
+export default function useDeviceDetect() {
+  const [isMobile, setMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const userAgent =
+      typeof window.navigator === "undefined" ? "" : navigator.userAgent;
+    const mobile = Boolean(
+      userAgent.match(
+        /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+      )
+    );
+    setMobile(mobile);
+  }, []);
+
+  return { isMobile };
 }
