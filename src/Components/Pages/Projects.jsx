@@ -34,7 +34,7 @@ const About = () => {
 				<div className="container">
 					<div className="row">
 						{projects.entries.map((project) => (
-							<div key={project._id} className="col-md-4">
+							<div key={project._id} className="col-md-6">
 								<div className="card">
 									<div className="headline">
 										<a href={project.projectlink} target="_blank" rel="noreferrer" className="site">

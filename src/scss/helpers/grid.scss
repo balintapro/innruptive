@@ -1,3 +1,5 @@
+@import "~grid-simpleflex/index.scss";
+
 .grd {
   display: grid;
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
@@ -9,14 +11,36 @@
   grid-template-areas:
     "menu content content right-bar"
     "menu content content right-bar"
-    "footer content content right-bar";
+    "menu content content right-bar";
   overflow: auto;
 }
-header {
+
+.morph {
   grid-area: menu;
-}
-footer {
-  grid-area: footer;
+  padding: 15px;
+  > .wrap {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    border-radius: $menu-rad;
+    box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8),
+      10px 10px 24px rgba(166, 180, 200, 0.7);
+  }
+  header {
+    flex-grow: 1;
+    height: 100%;
+    nav {
+      flex-grow: 1;
+    }
+  }
+  header {
+    border-top-left-radius: $menu-rad;
+    border-top-right-radius: $menu-rad;
+  }
+  footer {
+    border-bottom-left-radius: $menu-rad;
+    border-bottom-right-radius: $menu-rad;
+  }
 }
 
 .right-bar {
@@ -24,7 +48,8 @@ footer {
   margin: 15px;
   padding: 15px;
   border-radius: $menu-rad;
-  background: $grey-100;
+  box-shadow: -12px -12px 20px rgba(255, 255, 255, 0.8),
+    10px 10px 24px rgba(166, 180, 200, 0.7);
   .inner-cont {
     height: 100%;
     border-radius: 4px;
@@ -64,6 +89,14 @@ footer {
     grid-template-columns: 1fr;
     grid-template-rows: 60px 1fr 60px;
   }
+
+  header {
+    grid-area: menu;
+  }
+  footer {
+    grid-area: footer;
+  }
+
   .content {
     max-height: calc(100vh);
     > div {

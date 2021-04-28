@@ -1,12 +1,6 @@
 footer {
   max-width: 100%;
   .wrap {
-    background: $grey-100;
-    margin: 0 15px 15px 15px;
-    padding-bottom: 15px;
-
-    border-bottom-left-radius: $menu-rad;
-    border-bottom-right-radius: $menu-rad;
     @media (max-width: 1023px) {
       background: initial;
       margin: 0;

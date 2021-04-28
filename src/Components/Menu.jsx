@@ -18,21 +18,27 @@ const Menu = (props, isMobile, location) => {
 			<nav className="nav crt" id="nav">
 				<NavLink exact to="/" className="home" activeClassName="active">
 					<b>
-						<FontAwesomeIcon icon={faTerminal} />
+						<span>
+							<FontAwesomeIcon icon={faTerminal} />
+						</span>
 					</b>
-					<span>Home</span>
+					<span className="label">Home</span>
 				</NavLink>
 				<NavLink exact to="/projects" className="projects" activeClassName="active">
 					<b>
-						<FontAwesomeIcon icon={faProjectDiagram} />
+						<span>
+							<FontAwesomeIcon icon={faProjectDiagram} />
+						</span>
 					</b>
-					<span>Projects</span>
+					<span className="label">Projects</span>
 				</NavLink>
 				<NavLink to="/blog" className="blog" activeClassName="active">
 					<b>
-						<FontAwesomeIcon icon={faThList} />
+						<span>
+							<FontAwesomeIcon icon={faThList} />
+						</span>
 					</b>
-					<span>Blog</span>
+					<span className="label">Blog</span>
 				</NavLink>
 			</nav>
 		</header>

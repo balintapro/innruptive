@@ -40,25 +40,28 @@ const Blog = () => {
 			</Helmet>
 			<section className="list">
 				{posts.map((post) => (
-						<div key={post._id} onClick={() => toPost(post.title_slug)} className="post">
-							<div className="col-sm-2">
-								<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />
-							</div>
-							<div className="col-sm-3">
+					<div key={post._id} onClick={() => toPost(post.title_slug)} className="row post">
+						<div className="col-md-5">
+							<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />
+						</div>
+						<div className="col-md-7">
+
+							<div className="">
 								{post.title}
 								<h2>{post.title}</h2>
 							</div>
-							<div className="col-sm-5">
+							<div className="">
 								<p className="excerpt" dangerouslySetInnerHTML={{
 									__html: post.excerpt
 								}} />
 							</div>
-							<div className="col-sm-2">
+							<div className="">
 								<span className="time" dangerouslySetInnerHTML={{
 									__html: parseTime(post._modified)
 								}}></span>
 							</div>
 						</div>
+					</div>
 				))}
 			</section>
 		</>

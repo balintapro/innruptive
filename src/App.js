@@ -67,9 +67,17 @@ const App = () => {
 				<meta property="twitter:image" content="" />
 
 			</Helmet>
-			<Menu isMobile={isMobile} location={location} />
-			<Footer />
-
+			{isMobile ? (<>
+				<Menu isMobile={isMobile} location={location} />
+				<Footer />
+			</>) : (
+				<div className="morph">
+					<div className="wrap">
+						<Menu isMobile={isMobile} location={location} />
+						<Footer />
+					</div>
+				</div>)
+			}
 			<Router />
 			{isMobile ? "" : (
 				<div className="right-bar">

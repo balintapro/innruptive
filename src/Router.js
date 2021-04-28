@@ -24,7 +24,7 @@ const Routes = () => {
 			render={({ location }) => {
 				return (
 					<PageTransition
-						preset="scaleDownFromTop"
+						preset="scaleUpScaleUp"
 						transitionKey={location.pathname}
 						className="content"
 					>
