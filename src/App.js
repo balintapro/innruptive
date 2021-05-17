@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Helmet } from "react-helmet";
 import CookieConsent from "react-cookie-consent";
+import ReactGA from 'react-ga';
 
 import useDeviceDetect from "./Components/Helper/utils"
-
-import ReactGA from 'react-ga';
-import TwitterContainer from "./Components/Helper/twitter"
 
 import Menu from "./Components/Menu";
 import Router from "./Router";
 import Footer from "./Components/Footer";
 
+const TwitterContainer = React.lazy(() => import('./Components/Helper/twitter'));
+
 const App = () => {
 	let location = window.location.href;
+
+	const { isMobile } = useDeviceDetect();
 
 	const [color, setColor] = useState();
 	const [colorRgb, setColorRgb] = useState();
 	const [colorPair, setPair] = useState();
-	const { isMobile } = useDeviceDetect();
 
 	const green = "rgb(82, 216, 144, 0.2)";
 	const blue = "rgb(94, 175, 168, 0.2)";
@@ -67,21 +68,33 @@ const App = () => {
 				<meta property="twitter:image" content="" />
 
 			</Helmet>
-			{isMobile ? (<>
-				<Menu isMobile={isMobile} location={location} />
-				<Footer />
-			</>) : (
-				<div className="morph">
-					<div className="wrap">
-						<Menu isMobile={isMobile} location={location} />
-						<Footer />
+			{isMobile ? (
+				<>
+					<Menu />
+					<Router isMobile={isMobile} />
+				</>) : (
+				<>
+					<div className="morph">
+						<div className="wrap">
+							<Menu />
+							<Footer />
+						</div>
 					</div>
-				</div>)
+					<Router />
+
+				</>)
 			}
-			<Router />
 			{isMobile ? "" : (
 				<div className="right-bar">
-					<TwitterContainer />
+					<Suspense fallback={
+						<div className="inner-cont">
+							<div className="decor">
+								<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+							</div>
+						</div>
+					}>
+						<TwitterContainer />
+					</Suspense>
 				</div>
 			)}
 			<CookieConsent

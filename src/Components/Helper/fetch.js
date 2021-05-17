@@ -6,10 +6,11 @@ export async function fetchApi(endpoint, setter) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify,
         }
-    );
+    ).catch((error) => {
+        console.log(error)
+    });
     let data = await response.json();
     if (endpoint.includes("blog") && data) {
-        console.log(data)
         let sortPosts = data.entries.sort((a, b) => {
             return b._created - a._created
         })
@@ -19,4 +20,5 @@ export async function fetchApi(endpoint, setter) {
         setter(data);
 
     }
+
 }

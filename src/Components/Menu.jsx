@@ -7,11 +7,8 @@ import {
 	faThList
 } from "@fortawesome/free-solid-svg-icons";
 
-const isPost = window.location.href.includes("post");
-console.log(isPost)
-
 // header component for display routing
-const Menu = (props, isMobile, location) => {
+const Menu = (props) => {
 	const { color } = props;
 	return (
 		<header className={color}>

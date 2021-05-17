@@ -43,6 +43,12 @@
   }
 }
 
+header,
+footer,
+.right-bar {
+  background: $white;
+}
+
 .right-bar {
   grid-area: right-bar;
   margin: 15px;
@@ -60,16 +66,13 @@
     max-height: 100%;
     .decor {
       height: 100%;
-      overflow: scroll;
+      overflow-y: scroll;
     }
   }
 }
 .content {
   grid-area: content;
   overflow-y: scroll;
-  > div {
-    overflow-y: scroll;
-  }
 }
 
 .right-bar section {
@@ -82,57 +85,39 @@
     display: none;
   }
   .grd {
-    grid-template-areas:
-      "menu"
-      "content"
-      "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: 60px 1fr 60px;
+    overflow: scroll;
+    display: block;
+  }
+
+  .article {
+    height: initial;
+    overflow: initial;
+    margin-top: 80px;
+
+    .blog {
+      height: initial;
+      overflow-y: initial;
+    }
   }
 
   header {
-    grid-area: menu;
+    position: fixed;
+    nav {
+      background: $white;
+    }
+  }
+  section {
+    margin-top: 60px;
   }
   footer {
-    grid-area: footer;
+    display: block;
   }
 
   .content {
-    max-height: calc(100vh);
+    display: block;
+    grid-area: unset;
     > div {
-      overflow-y: scroll;
+      overflow-y: initial;
     }
   }
-}
-
-/* Customize website's scrollbar like Mac OS
-Not supports in Firefox and IE */
-
-/* total width */
-*::-webkit-scrollbar {
-  display: none;
-}
-
-/* background of the scrollbar except button or resizer */
-*::-webkit-scrollbar-track {
-  display: none;
-}
-
-/* scrollbar itself */
-*::-webkit-scrollbar-thumb {
-  display: none;
-}
-
-/* set button(top and bottom of the scrollbar) */
-*::-webkit-scrollbar-button {
-  display: none;
-}
-
-* {
-  scrollbar-width: none;
-}
-
-html {
-  box-sizing: border-box;
-  overflow: hidden;
 }

@@ -9,6 +9,7 @@ import Projects from "./Components/Pages/Projects";
 import Blog from "./Components/Pages/Blog";
 import Post from "./Components/Pages/Post";
 import Nope404 from "./Components/Pages/Nope404";
+import Footer from "./Components/Footer"
 
 const Routes = () => {
 	const [posts, setPosts] = useState([]);
@@ -33,13 +34,16 @@ const Routes = () => {
 							<Route component={Projects} exact path="/projects" />
 							<Route component={Blog} exact path="/blog" />
 							<Route exact
-								path='/blog/:title'
+								path='/post/:title'
 								render={(props) => (
 									<Post {...props} entries={posts} />
 								)}
 							/>
 							<Route component={Nope404} />
 						</Switch>
+						<div className="mob-only">
+							<Footer />
+						</div>
 					</PageTransition>
 				);
 			}}

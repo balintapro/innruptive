@@ -7,13 +7,8 @@ header {
     width: 100%;
     z-index: 4;
     height: 60px;
-    padding: 5px;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 0)
-    );
+    padding: 0 5px 0;
+    background: none;
   }
 }
 nav {
@@ -30,6 +25,8 @@ nav {
     border-radius: $menu-rad;
     flex-direction: row;
     align-items: center;
+    box-shadow: 20px -20px 20px #ffffffcc, -20px -6px 24px #a6b4c8b3;
+    overflow: visible;
   }
   a {
     display: block;
@@ -40,7 +37,7 @@ nav {
     text-decoration: none;
     overflow: visible;
     position: relative;
-    transition: all ease-in-out 0.25s;
+    transition: $smooth-def;
     margin-top: 15px;
     @media (max-width: 1023px) {
       display: inline-block;
@@ -55,7 +52,7 @@ nav {
       width: 0;
       height: 35px;
       line-height: 2em;
-      transition: all ease-in-out 0.25s;
+      transition: $smooth-def;
     }
     b {
       color: $green;
@@ -68,7 +65,7 @@ nav {
       padding: 8px 0;
       text-align: left;
       border-radius: 3px;
-      transition: all ease-in-out 0.25s;
+      transition: $smooth-def;
       span {
         display: block;
         width: 60px;
@@ -118,51 +115,6 @@ nav {
       }
       &:hover {
         width: 171px;
-      }
-    }
-  }
-}
-.icon {
-  height: 69px;
-  padding: 0;
-  float: left;
-  display: block;
-}
-
-@media only screen and (max-width: 640px) {
-  .nav {
-    ul {
-      padding-top: 20px;
-      &.active {
-        top: 75px;
-      }
-    }
-    .container {
-      padding: 0;
-    }
-  }
-}
-
-@media (min-width: 992px) {
-  .nav {
-    ul {
-      display: flex;
-      align-items: center;
-      list-style: none;
-      padding-top: 0px;
-      li {
-        display: inline-block;
-        padding: 0;
-        a {
-          padding: 20px 20px 22px;
-        }
-        &.icon {
-          padding: 0;
-          a {
-            display: block;
-            font-size: 0;
-          }
-        }
       }
     }
   }

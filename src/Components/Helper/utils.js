@@ -30,28 +30,40 @@ export const toClipboard = (str) => {
   document.body.removeChild(clipboard);
 }
 
+
 // utils/useDeviceDetect.js
 
 export default function useDeviceDetect() {
   const [isMobile, setMobile] = React.useState(false);
 
+  const [width, setWidth] = React.useState(0);
+
   React.useEffect(() => {
-    const userAgent = typeof window.navigator === "undefined" ? "" : navigator.userAgent;
-    const mobile = Boolean(userAgent.match(
-        /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-      ) || window.innerWidth < 1024
-    );
+    const updateWindowDimensions = () => {
+      const newWidth = window.innerWidth;
+      setWidth(newWidth);
+      console.log("updating width");
+    };
+
+    window.addEventListener("resize", updateWindowDimensions);
+
+    return () => window.removeEventListener("resize", updateWindowDimensions)
+
+  }, []);
+
+
+  React.useEffect(() => {
+    const mobile = window.innerWidth < 1024 ? true : false
     
     window.addEventListener('resize', () => {
       setMobile(mobile);
-      console.log("waa")
     });
     window.addEventListener('orientationchange', () => {
       setMobile(mobile);
     });
 
     setMobile(mobile);
-  }, []);
+  }, [width]);
 
   return { isMobile };
 }

@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom';
 import { Helmet } from "react-helmet";
+
+import { NavLink } from "react-router-dom";
 
 import { fetchApi } from "../Helper/fetch"
 import { parseTime } from "../Helper/utils"
 
-const Blog = () => {
-	const [posts, setPosts] = useState([]);
-	const history = useHistory();
+import Footer from "../Footer";
 
-	function toPost(title) {
-		history.push('/blog/' + title);
-	}
+const Blog = (props) => {
+	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		fetchApi("blog/", setPosts)
+		fetchApi("blog/", setPosts);
+		
 		return () => {
 			setPosts()
 		}
@@ -40,14 +39,12 @@ const Blog = () => {
 			</Helmet>
 			<section className="list">
 				{posts.map((post) => (
-					<div key={post._id} onClick={() => toPost(post.title_slug)} className="row post">
-						<div className="col-md-5">
+					<NavLink key={post._id} exact to={"post/" + post.title_slug} className="row post">
+						<div className="col-md-5 thumb">
 							<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />
 						</div>
 						<div className="col-md-7">
-
 							<div className="">
-								{post.title}
 								<h2>{post.title}</h2>
 							</div>
 							<div className="">
@@ -61,10 +58,12 @@ const Blog = () => {
 								}}></span>
 							</div>
 						</div>
-					</div>
+					</NavLink>
 				))}
 			</section>
-		</>
+			{props.isMobile ? (<Footer />) : ""
+
+			}		</>
 	);
 };
 

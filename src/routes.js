@@ -8,6 +8,6 @@ export default (
 		<Route exact path="/" />
 		<Route path="/projects" />
 		<Route path="/blog" />
-		<Route path='/blog/:title'/>
+		<Route path='/post/:title'/>
 	</Switch>
 )

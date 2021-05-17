@@ -31,11 +31,11 @@ const About = () => {
 				<meta property="twitter:image" content="https://innruptive.com/api/storage/uploads/2020/08/30/5f4bd27e69feeinnruptive.png" />
 			</Helmet>
 			<section className="projects">
-				<div className="container">
-					<div className="row">
-						{projects.entries.map((project) => (
-							<div key={project._id} className="col-md-6">
-								<div className="card">
+				<div className="row">
+					{projects.entries.map((project) => (
+						<div key={project._id} className="col-md-6 col-sm-12 ">
+							<div className="card">
+								<div className="shdw">
 									<div className="headline">
 										<a href={project.projectlink} target="_blank" rel="noreferrer" className="site">
 											<img src={"https://innruptive.com/api/storage/uploads" + project.image.path} alt={project.image.title} />
@@ -52,8 +52,8 @@ const About = () => {
 									<span className="finished">{project.finished}</span>
 								</div>
 							</div>
-						))}
-					</div>
+						</div>
+					))}
 				</div>
 			</section>
 		</>
