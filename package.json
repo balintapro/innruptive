@@ -13,7 +13,7 @@
     "@testing-library/user-event": "^12.1.10",
     "create-react-app": "^4.0.3",
     "grid-simpleflex": "^2.0.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "react": "^17.0.2",
     "react-cookie-consent": "^6.2.3",
     "react-custom-scroll": "*",
