@@ -16,6 +16,12 @@ export async function fetchApi(endpoint, setter) {
         })
         setter(sortPosts)
     }
+    else if (endpoint.includes("projects") && data) {
+        let sortPosts = data.entries.sort((a, b) => {
+            return b.order - a.order
+        })
+        setter(sortPosts)
+    }
     else {
         setter(data);
 

@@ -31,7 +31,6 @@ footer {
   a {
     color: $green;
     font-weight: bold;
-    margin-right: 5px;
     height: 35px;
     width: 60px;
     background: #191919;
@@ -51,7 +50,7 @@ footer {
   .legal {
     transform-origin: 0 0;
     transform: rotate(-90deg);
-    margin: 125px 0 -20px 15px;
+    margin: 125px 0 -20px 19px;
     p {
       padding: 0 0 10px 0;
     }
@@ -105,7 +104,7 @@ footer {
         padding: 0 5px 0 0;
         border-radius: 0 $menu-rad $menu-rad 0;
         a {
-          margin-top: 0;
+          margin: 0 0 0 5px;;          
         }
       }
     }

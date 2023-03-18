@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { fetchApi } from "../Helper/fetch"
 
 const About = () => {
-	const [projects, setProjects] = useState({ entries: [] });
+	const [projects, setProjects] = useState([]);
 
 	useEffect(() => {
 		fetchApi("projects/", setProjects)
@@ -32,7 +32,7 @@ const About = () => {
 			</Helmet>
 			<section className="projects">
 				<div className="row">
-					{projects.entries.map((project) => (
+					{projects.map((project) => (
 						<div key={project._id} className="col-md-6 col-sm-12 ">
 							<div className="card">
 								<div className="shdw">
