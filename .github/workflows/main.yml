@@ -35,6 +35,7 @@ jobs:
       - name: Sync files to hosting
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with: 
+          local-dir: ./build/
           server: ftp.nethely.hu
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
