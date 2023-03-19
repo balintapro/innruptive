@@ -39,3 +39,13 @@ jobs:
           server: ftp.nethely.hu
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
+          exclude: |
+          api/**
+          api-lak/**
+          b/**
+          heat/**
+          music/**
+          phone/**
+          pong/**
+          retro/**
+          tomi/**          
