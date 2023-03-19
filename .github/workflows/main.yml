@@ -1,5 +1,8 @@
 name: Build and deploy
 on:
+  repository_dispatch:
+    types:
+      - Update from Cockpit CMS
   push:
     branches: [master]
   workflow_dispatch:

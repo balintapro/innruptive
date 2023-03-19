@@ -10,14 +10,21 @@ import Footer from "../Footer";
 
 const Blog = (props) => {
 	const [posts, setPosts] = useState([]);
+	const [activePosts, setActivePosts] = useState([]);
 
 	useEffect(() => {
 		fetchApi("blog/", setPosts);
-		
 		return () => {
 			setPosts()
 		}
 	}, [])
+
+	useEffect(() => {
+		setActivePosts(posts.filter(post => post.published === true))
+		return () => {
+			setActivePosts()
+		}
+	}, [posts])
 
 	return (
 		<>
@@ -38,7 +45,7 @@ const Blog = (props) => {
 
 			</Helmet>
 			<section className="list">
-				{posts.map((post) => (
+				{activePosts.map((post) =>(
 					<NavLink key={post._id} exact to={"post/" + post.title_slug} className="row post">
 						<div className="col-md-5 thumb">
 							<img src={"https://innruptive.com/api/storage/uploads" + post.image.path} alt="" />
