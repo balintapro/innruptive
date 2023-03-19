@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build ⛏
+    name: 📦 Build Innruptive
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,7 +21,7 @@ jobs:
           name: build
           path: build
   deploy:
-    name: Deploy 🚀
+    name: 🚀 Deploy to Nethely 
     needs: build
     runs-on: ubuntu-latest
     steps: 
@@ -36,6 +36,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with: 
           local-dir: ./build/
+          server-dir: ./main/
           server: ftp.nethely.hu
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_password }}
@@ -48,4 +49,5 @@ jobs:
             phone/**
             pong/**
             retro/**
-            tomi/**          
+            tomi/**
+            lakmuhely_landing_video4.mp4
