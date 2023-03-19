@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './scss/style.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -44,11 +44,12 @@ window.addEventListener('orientationchange', () => {
   detectScreen()
 });
 
-ReactDOM.render(
+const rootDomId = document.getElementById('root');
+const rootDom = createRoot(rootDomId);
+rootDom.render(
   <Router>
     <App />
-  </Router>,
-  document.getElementById('root')
+  </Router>
 );
 
 // If you want your app to work offline and load faster, you can change

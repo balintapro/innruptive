@@ -6,7 +6,7 @@ import ReactGA from 'react-ga';
 import useDeviceDetect from "./Components/Helper/utils"
 
 import Menu from "./Components/Menu";
-import Router from "./Router";
+import Animator from "./Animator";
 import Footer from "./Components/Footer";
 
 const TwitterContainer = React.lazy(() => import('./Components/Helper/twitter'));
@@ -71,7 +71,7 @@ const App = () => {
 			{isMobile ? (
 				<>
 					<Menu />
-					<Router isMobile={isMobile} />
+					<Animator isMobile={isMobile} />
 				</>) : (
 				<>
 					<div className="morph">
@@ -80,8 +80,7 @@ const App = () => {
 							<Footer />
 						</div>
 					</div>
-					<Router />
-
+					<Animator />
 				</>)
 			}
 			{isMobile ? "" : (

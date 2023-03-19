@@ -1,0 +1,40 @@
+name: Build and deploy
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build ⛏
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Install dependencies
+        run: yarn install
+      - name: Build dependencies
+        run: yarn build
+      - name: Archive production artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: build
+          path: build
+  deploy:
+    name: Deploy 🚀
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Download artifact
+        uses: actions/download-artifact@master
+        with: 
+          name: build
+          path: build
+      - name: Sync files to hosting
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with: 
+          server: ftp.nethely.hu
+          username: ${{ secrets.ftp_user }}
+          password: ${{ secrets.ftp_password }}
