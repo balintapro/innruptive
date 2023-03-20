@@ -8,11 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  env:
-    REPOSITORY_URL: github.com/balintapro/innruptive
-    IMAGE_NAME: ${{ github.repository }}/alerta-cli
-    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   build:
+    env:
+      REPOSITORY_URL: github.com/balintapro/innruptive
+      IMAGE_NAME: ${{ github.repository }}/alerta-cli
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     name: 📦 Build Innruptive
     runs-on: ubuntu-latest
     steps:
@@ -39,6 +39,10 @@ jobs:
           steps: ${{ toJson(steps) }}
         if: always()      
   deploy:
+    env:
+      REPOSITORY_URL: github.com/balintapro/innruptive
+      IMAGE_NAME: ${{ github.repository }}/alerta-cli
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     name: 🚀 Deploy Innruptive to Nethely 
     needs: build
     runs-on: ubuntu-latest
