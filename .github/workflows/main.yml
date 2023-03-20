@@ -14,11 +14,10 @@ jobs:
     steps:
       - uses: "8398a7/action-slack@v3"
         with:
-          status: ${{ job.status }}
+          status: 📦 build started
           fields: "repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: always() # Pick up events even if the job fails or is canceled.
       - name: Checkout repository
         uses: actions/checkout@master
       - name: Install dependencies
@@ -30,6 +29,11 @@ jobs:
         with:
           name: build
           path: build
+      - uses: "8398a7/action-slack@v3"
+        with:
+          status: 🌀 Build finished
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   deploy:
     name: 🚀 Deploy Innruptive to Nethely 
     needs: build
@@ -37,11 +41,9 @@ jobs:
     steps:
       - uses: "8398a7/action-slack@v3"
         with:
-          status: ${{ job.status }}
-          fields: "repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest"
+          status: 🚀 Deploy started
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        if: always() # Pick up events even if the job fails or is canceled.
       - name: Checkout repository
         uses: actions/checkout@master
       - name: Download artifact
@@ -68,3 +70,8 @@ jobs:
             retro/**
             tomi/**
             lakmuhely_landing_video4.mp4
+      - uses: "8398a7/action-slack@v3"
+        with:
+          status: 🌀 Deploy finished
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
