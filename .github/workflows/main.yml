@@ -15,6 +15,7 @@ jobs:
       - uses: act10ns/slack@v1
         with:
           status: starting
+          channel: '#ci-cd'
           message: 📦 Build Innruptive
         if: always()
       - name: Checkout repository
@@ -41,6 +42,7 @@ jobs:
       - uses: act10ns/slack@v1
         with:
           status: starting
+          channel: '#ci-cd'
           message: 🚀 Deploy Innruptive to Nethely 
         if: always()
       - name: Checkout repository
