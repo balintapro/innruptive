@@ -12,12 +12,12 @@ jobs:
     name: 📦 Build Innruptive
     runs-on: ubuntu-latest
     steps:
-      - uses: "8398a7/action-slack@v3"
+      - uses: act10ns/slack@v1
         with:
-          status: 📦 build started
-          fields: "repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest"
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          status: starting
+          channel: '#workflows'
+          message: 📦 Build Innruptive
+        if: always()
       - name: Checkout repository
         uses: actions/checkout@master
       - name: Install dependencies
@@ -29,21 +29,22 @@ jobs:
         with:
           name: build
           path: build
-      - uses: "8398a7/action-slack@v3"
-        with:
-          status: 🌀 Build finished
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - uses: act10ns/slack@v1
+        with: 
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+        if: always()      
   deploy:
     name: 🚀 Deploy Innruptive to Nethely 
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: "8398a7/action-slack@v3"
+      - uses: act10ns/slack@v1
         with:
-          status: 🚀 Deploy started
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          status: starting
+          channel: '#workflows'
+          message: 🚀 Deploy Innruptive to Nethely 
+        if: always()
       - name: Checkout repository
         uses: actions/checkout@master
       - name: Download artifact
@@ -70,8 +71,8 @@ jobs:
             retro/**
             tomi/**
             lakmuhely_landing_video4.mp4
-      - uses: "8398a7/action-slack@v3"
-        with:
-          status: 🌀 Deploy finished
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - uses: act10ns/slack@v1
+        with: 
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+        if: always()
