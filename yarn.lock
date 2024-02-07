@@ -10636,6 +10636,11 @@ sass-loader@^12.3.0:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
+sass-math@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/sass-math/-/sass-math-1.0.0.tgz#b30b2ab81639daae66f5c367bc2d85ab411e7169"
+  integrity sha512-sNRWEW71zu9HfgtIvUQYi5FTXys10x/wtOFtaBFg2yTgdDiGlxyr448suw8ZKAEHX4T2X1uxnrpcAVwIerDTKQ==
+
 sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"

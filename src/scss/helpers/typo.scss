@@ -1,8 +1,6 @@
 /* prettier-ignore */
 /* prettier-ignore-end */
 
-@import url("https://fonts.googleapis.com/css?family=Lato:wght@300;400|Overpass+Mono:wght@300;400&display=swap&subset=latin-ext");
-
 $green: #52d890;
 $blue: #5eafa8;
 $yellow: #f5c65d;
@@ -35,8 +33,8 @@ $f-xl: 6em;
 
 $link-pad: 0 3px 2px 3px;
 
-$font-header: "Overpass Mono", monospace;
-$font-default: "Lato", sans-serif;
+$font-default: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Ubuntu, "Helvetica Neue", Oxygen, Cantarell, sans-serif;
 
 $border-white: 1px solid $white;
 
@@ -68,11 +66,15 @@ body {
   text-align: left;
   margin: 0;
   transition: all 0.3s ease 0s;
-  background: linear-gradient(-134.17deg, #fff 4.98%, #eef0f5 94.88%);
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
 }
 
 nav {
-  font-family: $font-header;
+  font-family: $font-default;
   font-size: $f-med;
   text-transform: uppercase;
 }
@@ -83,8 +85,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-header;
-  font-weight: 100;
+  font-family: $font-default;
+  font-weight: 600;
 }
 h1 {
   font-size: $f-xmed;
@@ -141,7 +143,7 @@ code {
   border-radius: 3px;
   padding: $link-pad;
   font-size: $f-small;
-  font-family: $font-header;
+  font-family: $font-default;
   &:hover {
     cursor: pointer;
     background: $grey-100;
@@ -197,103 +199,37 @@ code {
 }
 
 .button {
-  font-family: $font-header;
+  font-family: $font-default;
   font-weight: bold;
 }
 
-.center {
+#root .center {
+  width: 21cm;
+  height: 29.7cm;
+  margin: 30mm 45mm 30mm 45mm;
+}
+
+#root .center {
   display: block;
   margin: 0 auto;
-  text-align: center;
 }
 
 .logo {
   animation: textShadow 5.6s infinite;
 }
 
-@keyframes textShadow {
-  0% {
-    text-shadow: 0.43899px 0 1px rgba(0, 30, 255, 0.5),
-      -0.43899px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  5% {
-    text-shadow: 2.7929px 0 1px rgba(0, 30, 255, 0.5),
-      -2.7929px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  10% {
-    text-shadow: 0.02956px 0 1px rgba(0, 30, 255, 0.5),
-      -0.02956px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  15% {
-    text-shadow: 0.40219px 0 1px rgba(0, 30, 255, 0.5),
-      -0.40219px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  20% {
-    text-shadow: 3.4794px 0 1px rgba(0, 30, 255, 0.5),
-      -3.4794px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  25% {
-    text-shadow: 1.61256px 0 1px rgba(0, 30, 255, 0.5),
-      -1.61256px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  30% {
-    text-shadow: 0.70156px 0 1px rgba(0, 30, 255, 0.5),
-      -0.70156px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  35% {
-    text-shadow: 3.89691px 0 1px rgba(0, 30, 255, 0.5),
-      -3.89691px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  40% {
-    text-shadow: 3.87091px 0 1px rgba(0, 30, 255, 0.5),
-      -3.87091px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  45% {
-    text-shadow: 2.23106px 0 1px rgba(0, 30, 255, 0.5),
-      -2.23106px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  50% {
-    text-shadow: 0.08084px 0 1px rgba(0, 30, 255, 0.5),
-      -0.08084px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  55% {
-    text-shadow: 2.37585px 0 1px rgba(0, 30, 255, 0.5),
-      -2.37585px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  60% {
-    text-shadow: 2.20219px 0 1px rgba(0, 30, 255, 0.5),
-      -2.20219px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  65% {
-    text-shadow: 2.86388px 0 1px rgba(0, 30, 255, 0.5),
-      -2.86388px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  70% {
-    text-shadow: 0.48874px 0 1px rgba(0, 30, 255, 0.5),
-      -0.48874px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  75% {
-    text-shadow: 1.89485px 0 1px rgba(0, 30, 255, 0.5),
-      -1.89485px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  80% {
-    text-shadow: 0.0833px 0 1px rgba(0, 30, 255, 0.5),
-      -0.0833px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  85% {
-    text-shadow: 0.0977px 0 1px rgba(0, 30, 255, 0.5),
-      -0.0977px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  90% {
-    text-shadow: 3.44334px 0 1px rgba(0, 30, 255, 0.5),
-      -3.44334px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  95% {
-    text-shadow: 2.18418px 0 1px rgba(0, 30, 255, 0.5),
-      -2.18418px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
-  100% {
-    text-shadow: 2.62088px 0 1px rgba(0, 30, 255, 0.5),
-      -2.62088px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
-  }
+.placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #4a4d4e;
+  padding: 5px;
+  color: #fff;
+}
+
+.box {
+  background-color: #cacaca;
+  padding: 5px;
+  text-align: center;
+  list-style: none;
 }

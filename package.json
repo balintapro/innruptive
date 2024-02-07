@@ -24,6 +24,7 @@
     "react-scripts": "^5.0.1",
     "react-snap": "^1.23.0",
     "react-snap-nh": "^1.0.1",
+    "sass-math": "^1.0.0",
     "serve": "^14.2.0",
     "styled-components": "^5.3.9",
     "web-vitals": "^3.3.0",
@@ -70,7 +71,7 @@
     "react-transition-group": "^4.4.2"
   },
   "reactSnap": {
-    "puppeteerExecutablePath": "/usr/bin/chromium-browser",
+    "puppeteerExecutablePath": "chromium",
     "cacheAjaxRequests": true,
     "headless": true,
     "puppeteerArgs": [
