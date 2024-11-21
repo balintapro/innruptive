@@ -16,7 +16,7 @@ const Footer = props => {
 					<a href="https://www.npmjs.com/~zeracoke" title="My public NPM packages" rel="noreferrer" target="_blank">
 						<b><FontAwesomeIcon icon={faNpm} /> </b>
 					</a>
-					<a href="https://github.com/abalint88" title="My github page" rel="noreferrer" target="_blank">
+					<a href="https://github.com/balintapro" title="My github page" rel="noreferrer" target="_blank">
 						<b><FontAwesomeIcon icon={faGithub} /></b>
 					</a>
 				</div>
